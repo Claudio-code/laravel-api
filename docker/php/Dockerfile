@@ -26,6 +26,6 @@ RUN apt-get install --yes libicu-dev \
 ## MySQL PDO support
 RUN docker-php-ext-install pdo_mysql
 
-CMD bash -c "composer install --no-dev --prefer-dist --optimize-autoloader && composer clear-cache && php artisan serve --host=0.0.0.0 --port=80"
+CMD bash -c "composer install --no-dev --prefer-dist --optimize-autoloader && composer clear-cache && php artisan serve --host=0.0.0.0 --port=80 && php artisan migrate"
 
 WORKDIR /var/www
